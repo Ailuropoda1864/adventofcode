@@ -88,8 +88,11 @@ ENV/
 # Rope project settings
 .ropeproject
 
-# VS Code
+# PyCharm
 .idea/
+
+# VS Code
+.vscode/
 
 # repo specific files
 .token

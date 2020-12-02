@@ -27,10 +27,15 @@ def part2(input_list):
     numbers = Counter(input_list)
     temp = numbers.copy()
     for i, i_count in numbers.items():
-        temp[i] = i_count - 1
+        if i_count == 1:
+            temp.pop(i)
+        else:
+            temp[i] = i_count - 1
         results = find_numbers(temp, 2020 - i)
         if results is not None:
             return i * results
+        else:
+            temp[i] = i_count
 
 
 if __name__ == '__main__':
