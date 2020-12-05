@@ -12,22 +12,20 @@ def count_valid(input_string, validate_func):
     return sum(
         validate_func({
             key: value for key, value in (
-                field.split(':') for field in re.split(r' |\n', passport)
+                field.split(':') for field in re.split(r'\s', passport)
             )
         }) for passport in input_string.split('\n\n'))
 
 
 # Part One
 def rule1(fields):
-    fields['cid'] = fields.get('cid', None)
-    return len(fields) == 8
+    return set(fields.keys()) | {'cid'} == {'byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid', 'cid'}
 
 
 # Part Two
 def rule2(fields):
-    fields['cid'] = fields.get('cid', None)
     try:
-        assert len(fields) == 8
+        assert rule1(fields)
 
         # Birth Year
         assert len(fields['byr']) == 4
@@ -59,8 +57,6 @@ def rule2(fields):
         assert re.fullmatch(r'\d{9}', fields['pid'])
 
     except AssertionError:
-        return False
-    except KeyError:
         return False
     return True
 
