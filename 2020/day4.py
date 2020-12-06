@@ -12,7 +12,7 @@ def count_valid(input_string, validate_func):
     return sum(
         validate_func({
             key: value for key, value in (
-                field.split(':') for field in re.split(r'\s', passport)
+                field.split(':') for field in passport.split()
             )
         }) for passport in input_string.split('\n\n'))
 
