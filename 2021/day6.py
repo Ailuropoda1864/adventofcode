@@ -10,7 +10,7 @@ def parse_input(test: bool):
         input_string = read_file("test.txt")
     else:
         input_string = get_input_string(DAY)
-    return list(map(int, input_string.split(',')))
+    return list(map(int, input_string.split(",")))
 
 
 def simulate(fishes, days):
@@ -33,5 +33,3 @@ if __name__ == "__main__":
     print(simulate(fishes, 80))
     # Part 2
     print(simulate(fishes, 256))
-
-

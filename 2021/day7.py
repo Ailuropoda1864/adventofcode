@@ -9,7 +9,7 @@ def parse_input(test: bool):
         input_string = read_file("test.txt")
     else:
         input_string = get_input_string(DAY)
-    return list(map(int, input_string.split(',')))
+    return list(map(int, input_string.split(",")))
 
 
 def find_least_fuel(positions, fuel_func):
@@ -34,6 +34,3 @@ if __name__ == "__main__":
     print(find_least_fuel(positions, abs))
     # Part 2
     print(find_least_fuel(positions, cumulative_sum))
-
-
-
