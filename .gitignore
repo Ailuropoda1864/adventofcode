@@ -97,3 +97,5 @@ ENV/
 # repo specific files
 .token
 *.txt
+day_template.py
+*.png
